@@ -1,0 +1,42 @@
+﻿<Window x:Class="GameOfLife.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameOfLife"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1200">
+    <Grid>
+        <Button x:Name="Start" Content="Progress" Command="{Binding StartCommand}" HorizontalAlignment="Left" Margin="742,104,0,0" VerticalAlignment="Top"/>
+        <Button Content="StartSimulaiton" Command="{Binding SimulationStartCommand}" HorizontalAlignment="Left" Margin="742,144,0,0" VerticalAlignment="Top" />
+        <Button Content="PauseSimulation" Command="{Binding PauseCommand}" HorizontalAlignment="Left" Margin="742,184,0,0" VerticalAlignment="Top" />
+        <Button Content="SimSpeed1" Command="{Binding SimSpeed1}" HorizontalAlignment="Left" Margin="742,224,0,0" VerticalAlignment="Top" />
+        <Button Content="SimSpeed2" Command="{Binding SimSpeed2}" HorizontalAlignment="Left" Margin="742,264,0,0" VerticalAlignment="Top" />
+        <Button Content="Restart" Command="{Binding Restart}" HorizontalAlignment="Left" Margin="742,304,0,0" VerticalAlignment="Top" />
+        <Border Width="500" Height="500"  Margin="69,45,331,45">
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding Fields}" Margin="-94,35,54,-75">
+                <!--az mezőket tároló vezérlő-->
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <!--a gombokat egy rácsba fűzzük fel-->
+                        <UniformGrid Rows="{Binding Size}" Columns="{Binding Size}" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <!--az elemek gombok lesznek-->
+                    <DataTemplate>
+                        <Button Content=" " Command="{Binding StepCommand}" CommandParameter="{Binding XY}" Background="{Binding Background}" Focusable="False" RenderTransformOrigin="0.5, 0.5" FontSize="24" FontWeight="Bold" BorderThickness="0.1">
+                        
+                            <!-- gomb háttérszíne -->
+                            <!-- gomb méretezése (csak az animációnál használjuk ki) -->
+                            <Button.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </Button.RenderTransform>
+
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+    </Grid>
+</Window>

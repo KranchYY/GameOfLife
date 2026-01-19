@@ -1,0 +1,22 @@
+Feladat: Sejtautomata
+
+Készítsünk egy WPF grafikus felületű, MVVM architektúrájú asztali alkalmazást C# nyelven egy sejtautomata működésének szimulálására. A sejtautomatában az élettér legyen egy négyzetrács, ahol a sejtek születése és halála a szomszédos cellák állapotától függ. Az automata iterációkban működik, ahol az élettér minden cellája új állapotot vesz fel minden iterációban. A sejtek állapotváltozását John Conway Game of Life nevű szimulációs játékának mintájára valósítsuk meg:
+
+Élő sejt meghal, ha kevesebb, mint 2 vagy több, mint 3 élő sejt szomszédja van.
+
+Élő sejt túléli az iterációt, ha 2 vagy 3 szomszédja élő sejt.
+
+Üres (halott) cellában új sejt születik, ha pontosan 3 élő sejt szomszédja van.
+
+A szomszédos cellák számításába az átlók is beleszámítanak.
+
+A szimuláció szabályai kipróbálhatóak itt:
+https://playgameoflife.com/
+
+A megoldáshoz használni kívánt NuGet csomagokat a gyakorlati rész legelején add a projekthez, később erre már a korlátozott Internet elérés miatt nem lesz mód!
+
+Részfeladatok:
+
+2. A program jelenítsen meg egy 15 × 15-ös életteret, amelyen kezdetben minden cella üres (minden sejt halott). A szimuláció elindítása előtt legyen lehetőség a cellák állapotát rájuk kattintással változtatni (élő / halott sejt). Legyen lehetőség a szimuláció elindítására, majd manuális léptetésére az iterációknak. (Gombok vagy billentyűzet általi vezérléssel.) A szimuláció alatt kattintással már ne lehessen a sejtek állapotát változtatni.
+
+3. A szimuláció az indítása után ne manuálisan, hanem időzítetten, automatikusan fusson. Legyen lehetőség a szimuláció leállítására, majd újraindítására. A szimuláció sebességét legyen lehetőség az indítása előtt, de a szimuláció futása közben is változtatni! Legyen lehetőség a program újraindítása nélkül alapállapotba visszaállítani az életteret és újra indítani a szimulációt.
